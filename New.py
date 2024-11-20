@@ -84,7 +84,7 @@ def handle_message(event):
             matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows
         
         confirmMessate = confirmMessate+':' +matched_rows[0]
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
+       
         # 使用 dictWords 搜尋符合的資料
         if not matched_row.empty:
             # 取得第一筆符合的資料
@@ -95,6 +95,7 @@ def handle_message(event):
             feedback = {key: value for key, value in feedback.items() if pd.notna(value)}  
             feedback_str = "Carmin小幫手推薦您您可能對這張信用卡感興趣:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
             message2 = TextSendMessage(text=feedback_str)  # 將 feedback_str 轉換為 TextSendMessage 物件
+            line_bot_api.reply_message(event.reply_token,[message1,message2])
         else:
             line_bot_api.reply_message(event.reply_token, [message1, "抱歉，找不到符合您需求的信用卡"])
 
