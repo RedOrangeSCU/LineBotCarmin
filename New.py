@@ -78,11 +78,13 @@ def handle_message(event):
 
         ## 迭代所有 matched_values，找到符合條件的列
         matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的列
-        confirmMessate = confirmMessate+':' +matched_values[0]
+        
+        for matched_value in matched_values:
+            matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
+            matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows
+        
+        confirmMessate = confirmMessate+':' +matched_rows[0]
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
-        #for matched_value in matched_values:
-        #    matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
-        #    matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows
 
         #    if not matched_row.empty:  # 使用 dictWords 搜尋符合的資料
         #        first_match = matched_row.iloc[0]  # 取得第一筆符合的資料
