@@ -71,7 +71,7 @@ def handle_message(event):
         confirmMessate = '原來你對' + matched_words[0] + "有興趣呀?"
         message1 = TextSendMessage(text=confirmMessate)
         splitWords = dictWords.split('|')
-
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
         # 取得 splitWords[0] 欄位的所有唯一值
         matched_values = df[splitWords[0]].unique()
         print(confirmMessate)
@@ -89,7 +89,7 @@ def handle_message(event):
                 feedback_str = "Carmin小幫手推薦您您可能對這張信用卡感興趣:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
                 print(feedback_str)
                 message2 = TextSendMessage(text=feedback_str)  # 將 feedback_str 轉換為 TextSendMessage 物件
-                line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message1))
+                line_bot_api.reply_message(event.reply_token,[message1,message2])
             else:
                 line_bot_api.reply_message(event.reply_token, [message1, "抱歉，找不到符合您需求的信用卡"])
 
