@@ -83,6 +83,7 @@ def handle_message(event):
                         first_match = matched_row.iloc[0]  # 取得第一筆符合的資料
                         feedback = first_match.to_dict() # 將 Series 轉換為 dict                           
                         feedback_str = "Carmin小幫手推薦這張信用卡:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
+                        message2 = TextSendMessage(text=feedback_str)
                         line_bot_api.reply_message(event.reply_token,[message1,message2])
                     else:
                         line_bot_api.reply_message(event.reply_token, [message1, "抱歉，找不到符合您需求的信用卡"])
