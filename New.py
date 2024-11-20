@@ -72,12 +72,14 @@ def handle_message(event):
         message1 = TextSendMessage(text=confirmMessate)
         splitWords = dictWords.split('|')
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
-        ## 取得 splitWords[0] 欄位的所有唯一值
-        #matched_values = df[splitWords[0]].unique()
-        #print(confirmMessate)
+        # 取得 splitWords[0] 欄位的所有唯一值
+        matched_values = df[splitWords[0]].unique()
+        print(confirmMessate)
 
         ## 迭代所有 matched_values，找到符合條件的列
-        #matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的列
+        matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的列
+        confirmMessate = confirmMessate+':' +matched_values[0]
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
         #for matched_value in matched_values:
         #    matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
         #    matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows
