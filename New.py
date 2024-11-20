@@ -79,9 +79,10 @@ def handle_message(event):
                     for matched_value in matched_values:## 迭代所有 matched_values，找到符合條件的列
                         matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
                         matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows      
-                    if not matched_row.empty: # 使用 dictWords 搜尋符合的資料          
+                    if not matched_row.empty: # 使用 dictWords 搜尋符合的資料     
                         first_match = matched_row.iloc[0]  # 取得第一筆符合的資料
-                        feedback = first_match.to_dict() # 將 Series 轉換為 dict                           
+                        feedback = first_match.to_dict()  # 將 Series 轉換為 dict
+                        feedback = {key: value for key, value in feedback.items() if pd.notna(value)}  # 篩選掉 value 為 nan 的 key-value pairs                   
                         feedback_str = "Carmin小幫手推薦這張信用卡:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
                         message2 = TextSendMessage(text=feedback_str)
                         line_bot_api.reply_message(event.reply_token,[message1,message2])
