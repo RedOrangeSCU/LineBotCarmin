@@ -1,10 +1,11 @@
-import pymongo
+import os
+from pymongo import MongoClient
 
-# 要獲得mongodb網址，請至mongodb網站申請帳號進行資料庫建立，網址　https://www.mongodb.com/
-# 獲取的網址方法之範例如圖： https://i.imgur.com/HLCk99r.png
-uri = "mongodb+srv://13773011:<db_password>@cluster0.4hk9u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# 從環境變數中獲取 MongoDB URI
+MONGODB_URI = os.environ.get('MONGODB_URI')
 
-client = pymongo.MongoClient(uri)
+# 建立 MongoClient
+client = MongoClient(MONGODB_URI)
 
 #第一個db的建立
 db = client['MongoClient']
