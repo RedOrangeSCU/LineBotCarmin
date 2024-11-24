@@ -7,6 +7,8 @@ import pandas as pd
 import jieba
 from flask import Flask, request, abort
 
+from mongodb_function import *
+
 app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
 handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
@@ -31,6 +33,7 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
+    write_one_data(eval(body.replace('false','False')))
 
     # handle webhook body
     try:
@@ -52,6 +55,36 @@ def handle_message(event):
     try:
         user_id = event.source.user_id
         questionSentance = event.message.text  # 使用者啟動對話之內容
+        
+        if '@讀取' in questionSentance:
+            datas = read_many_datas()
+            datas_len = len(datas)
+            message = TextSendMessage(text=f'資料數量，一共{datas_len}條')
+            line_bot_api.reply_message(event.reply_token, message)
+        elif '@查詢' in questionSentance:
+            datas = col_find('events')
+            message = TextSendMessage(text=str(datas))
+            line_bot_api.reply_message(event.reply_token, message)
+        elif '@對話紀錄' in questionSentance:
+            datas = read_chat_records()
+            print(type(datas))
+            n = 0
+            text_list = []
+            for data in datas:
+                if '@' in data:
+                     continue
+                else:
+                     text_list.append(data)
+                     n+=1
+            data_text = '\n'.join(text_list)
+            message = TextSendMessage(text=data_text[:5000])
+            line_bot_api.reply_message(event.reply_token, message)
+        elif '@刪除' in questionSentance:
+            text = delete_all_data()
+            message = TextSendMessage(text=text)
+            line_bot_api.reply_message(event.reply_token, message)
+
+    #======MongoDB操作範例======
         result = handle_special_words(questionSentance)
         if result is None:    
             noneMessage ='您好！請問您想了解哪方面的資訊呢？'
