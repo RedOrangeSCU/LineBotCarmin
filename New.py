@@ -55,9 +55,7 @@ def handle_message(event):
     try:
         user_id = event.source.user_id
         questionSentance = event.message.text  # 使用者啟動對話之內容
-        if '@載入' in questionSentance:
-            LoadCSV()
-        elif '@讀取' in questionSentance:
+        if '@讀取' in questionSentance:
             datas = read_many_datas()
             datas_len = len(datas)
             message = TextSendMessage(text=f'資料數量，一共{datas_len}條')
