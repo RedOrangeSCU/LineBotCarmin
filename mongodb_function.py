@@ -1,9 +1,15 @@
 import os
 from pymongo import MongoClient
+from langchain.llms import OpenAI
+from langchain.chains import RetrievalQA
+from langchain.document_loaders import CSVLoader
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import MongoDBAtlasVectorSearch
 
 # 從環境變數中獲取 MongoDB URI
 MONGODB_URI = os.environ.get('MONGODB_URI')
 
+OPENAI_APIKEY = os.environ.get('OPENAI_APIKEY')
 # 建立 MongoClient
 client = MongoClient(MONGODB_URI)
 
@@ -17,6 +23,16 @@ def dicMemberCheck(key, dicObj):
         return True
     else:
         return False
+
+def LoadCSV():
+    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_APIKEY)
+    loader = CSVLoader(file_path="FormatData_1.1.csv")# 載入 CSV 資料到 MongoDB
+    documents = loader.load()
+    vectorstore = MongoDBAtlasVectorSearch.from_documents(
+            documents, embeddings, 
+    index_name="card_index",
+    connection_string=client
+)
 
 #寫入資料data是dictionary
 def write_one_data(data):

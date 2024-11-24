@@ -23,7 +23,7 @@ jieba.load_userdict(file_path)
 user_questions = {}
 
 # 設定預設詞彙列表
-special_words = {"信用卡", "好", "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好", "HI", "hi", "Hello"}
+special_words = {"好", "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好", "HI", "hi", "Hello"}
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -55,8 +55,9 @@ def handle_message(event):
     try:
         user_id = event.source.user_id
         questionSentance = event.message.text  # 使用者啟動對話之內容
-        
-        if '@讀取' in questionSentance:
+        if '@載入' in questionSentance:
+            LoadCSV()
+        elif '@讀取' in questionSentance:
             datas = read_many_datas()
             datas_len = len(datas)
             message = TextSendMessage(text=f'資料數量，一共{datas_len}條')
