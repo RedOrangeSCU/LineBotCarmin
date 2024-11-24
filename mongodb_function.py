@@ -29,11 +29,12 @@ def LoadCSV():
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_APIKEY)
     loader = CSVLoader(file_path="FormatData_1.1.csv")# 載入 CSV 資料到 MongoDB
     documents = loader.load()
-    vectorstore = MongoDBAtlasVectorSearch.from_documents(
-            documents, embeddings, 
-    index_name="card_index",
-    connection_string=client
-)
+    vectorstore = MongoDBAtlasVectorSearch.from_documents( 
+        documents, 
+        embeddings, 
+        index_name="card_index",
+        connection_string=client)
+    print(f"已將 {len(documents)} 筆文件儲存到 MongoDB!")
 
 #寫入資料data是dictionary
 def write_one_data(data):
