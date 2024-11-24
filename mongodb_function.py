@@ -33,6 +33,7 @@ def LoadCSV():
         documents, 
         embeddings, 
         index_name="card_index",
+        collection=col,
         connection_string=client)
     print(f"已將 {len(documents)} 筆文件儲存到 MongoDB!")
 
