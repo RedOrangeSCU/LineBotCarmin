@@ -16,7 +16,7 @@ client = MongoClient(MONGODB_URI)
 
 #第一個db的建立
 db = client['MongoClient']
-col = db['Database']
+col = db['MongoClient']['Info']
 
 #判斷key是否在指定的dictionary當中，若有則return True
 def dicMemberCheck(key, dicObj):
@@ -29,6 +29,8 @@ def LoadCSV():
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_APIKEY)
     loader = CSVLoader(file_path="FormatData_1.1.csv")# 載入 CSV 資料到 MongoDB
     documents = loader.load()
+    # 初始化 MongoDBAtlasVectorSearch
+
     vectorstore = MongoDBAtlasVectorSearch.from_documents( 
         documents, 
         embeddings, 
