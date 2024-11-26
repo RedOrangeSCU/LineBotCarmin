@@ -30,14 +30,15 @@ def LoadCSV():
     loader = CSVLoader(file_path="FormatData_1.1.csv")# 載入 CSV 資料到 MongoDB
     documents = loader.load()
     # 初始化 MongoDBAtlasVectorSearch
+    print(f"已將 {len(documents)} 筆文件儲存!")
 
-    vectorstore = MongoDBAtlasVectorSearch.from_documents( 
-        documents, 
-        embeddings, 
-        index_name="card_index",
-        collection=col,
-        connection_string=client)
-    print(f"已將 {len(documents)} 筆文件儲存到 MongoDB!")
+    #vectorstore = MongoDBAtlasVectorSearch.from_documents( 
+    #    documents, 
+    #    embeddings, 
+    #    index_name="card_index",
+    #    collection=col,
+    #    connection_string=client)
+    
 
 #寫入資料data是dictionary
 def write_one_data(data):
