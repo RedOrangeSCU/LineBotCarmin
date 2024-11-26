@@ -32,12 +32,12 @@ def LoadCSV():
     # 初始化 MongoDBAtlasVectorSearch
     print(f"已將 {len(documents)} 筆文件儲存!")
 
-    #vectorstore = MongoDBAtlasVectorSearch.from_documents( 
-    #    documents, 
-    #    embeddings, 
-    #    index_name="card_index",
-    #    collection=col,
-    #    connection_string=client)
+    vectorstore = MongoDBAtlasVectorSearch.from_documents( 
+        documents, 
+        embeddings, 
+        index_name="card_index",
+        collection=col,
+        connection_string=client)
     
 
 #寫入資料data是dictionary
