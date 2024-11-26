@@ -14,9 +14,9 @@ OPENAI_APIKEY = os.environ.get('OPENAI_APIKEY')
 # 建立 MongoClient
 client = MongoClient(MONGODB_URI)
 
-#第一個db的建立
-db = client['MongoClient']
-col = db['MongoClient']['Info']
+# 建立数据库和 Collection，使用更有意义的名称
+db = client['linebot_db']  
+col = db['Info']  
 
 #判斷key是否在指定的dictionary當中，若有則return True
 def dicMemberCheck(key, dicObj):
@@ -36,8 +36,7 @@ def LoadCSV():
         documents, 
         embeddings, 
         index_name="card_index",
-        collection=col,
-        connection_string=client)
+        collection=col)
     
 
 #寫入資料data是dictionary
