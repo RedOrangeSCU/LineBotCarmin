@@ -9,7 +9,7 @@ from langchain.vectorstores import MongoDBAtlasVectorSearch
 
 import json
 import numpy as np
-from sentence_transformers import SentenceTransformer  # 匯入 SentenceTransformer
+#from sentence_transformers import SentenceTransformer  # 匯入 SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # 從環境變數中獲取 MongoDB URI
