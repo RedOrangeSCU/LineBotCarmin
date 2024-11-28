@@ -112,7 +112,9 @@ def handle_message(event):
                 splitWords = dictWords.split('|')
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
                 returnValues = usingNPY(questionSentance)
-                message2 = TextSendMessage(text=returnValues)
+                #message2 = TextSendMessage(text=returnValues)
+                print(returnValues)
+                message2 =  TextSendMessage(text="returnValues")
                 line_bot_api.reply_message(event.reply_token,[message1,message2])
                 #if splitWords[0] in df.columns:
                 #    matched_values = df[splitWords[0]].unique() # 取得 splitWords[0] 欄位的所有唯一值
