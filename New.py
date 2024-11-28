@@ -9,6 +9,9 @@ from flask import Flask, request, abort
 
 from mongodb_function import *
 
+import json
+
+
 app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
 handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
@@ -18,6 +21,22 @@ df = pd.read_csv('FormatData_1.1.csv')
 # 載入字典
 file_path = 'Real_userdict_1.txt'
 jieba.load_userdict(file_path)
+
+# 載入 JSON 檔案
+with open('LMStudio_V1.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+
+# 提取問答配對
+qa_pairs = []
+for message in data['messages']:
+    if len(message['versions']) > 0 and message['versions'][0]['role'] == 'user':
+        question = message['versions'][0]['content'][0]['text']
+        answer = message['versions'][1]['content'][0]['text']
+        qa_pairs.append((question, answer))
+
+# 建立問答知識庫
+qa_dict = {question: answer for question, answer in qa_pairs}
+
 
 # 建立一個字典，儲存使用者和提問次數
 user_questions = {}
@@ -110,25 +129,38 @@ def handle_message(event):
                 confirmMessate = '原來你對' + matched_words[0] + "有興趣呀?"
                 message1 = TextSendMessage(text=confirmMessate)
                 splitWords = dictWords.split('|')
-                #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=confirmMessate))
-                if splitWords[0] in df.columns:
-                    matched_values = df[splitWords[0]].unique() # 取得 splitWords[0] 欄位的所有唯一值
-                    matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的
-                    for matched_value in matched_values:## 迭代所有 matched_values，找到符合條件的列
-                        matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
-                        matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows      
-                    if not matched_row.empty: # 使用 dictWords 搜尋符合的資料     
-                        first_match = matched_row.iloc[0]  # 取得第一筆符合的資料
-                        feedback = first_match.to_dict()  # 將 Series 轉換為 dict
-                        feedback = {key: value for key, value in feedback.items() if pd.notna(value)}  # 篩選掉 value 為 nan 的 key-value pairs                   
-                        feedback_str = "Carmin小幫手推薦這張信用卡:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
-                        message2 = TextSendMessage(text=feedback_str)
-                        line_bot_api.reply_message(event.reply_token,[message1,message2])
-                    else:
-                        line_bot_api.reply_message(event.reply_token, [message1, "抱歉，找不到符合您需求的信用卡"])
+
+                # 使用者傳送的訊息
+                user_message = event.message.text
+                # 搜尋最相似問題
+                most_similar_question = find_most_similar_question(user_message, qa_dict.keys())
+                # 返回答案或預設回覆
+                if most_similar_question:
+                     response = qa_dict[most_similar_question]
                 else:
-                    # 處理 splitWords[0] 不存在的情況，例如：
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我找不到相關資訊"))
+                    response = "找不到答案，請重新 phrasing 你的問題。"
+                # 傳送回覆
+                line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+
+                
+                #if splitWords[0] in df.columns:
+                #    matched_values = df[splitWords[0]].unique() # 取得 splitWords[0] 欄位的所有唯一值
+                #    matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的
+                #    for matched_value in matched_values:## 迭代所有 matched_values，找到符合條件的列
+                #        matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
+                #        matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows      
+                #    if not matched_row.empty: # 使用 dictWords 搜尋符合的資料     
+                #        first_match = matched_row.iloc[0]  # 取得第一筆符合的資料
+                #        feedback = first_match.to_dict()  # 將 Series 轉換為 dict
+                #        feedback = {key: value for key, value in feedback.items() if pd.notna(value)}  # 篩選掉 value 為 nan 的 key-value pairs                   
+                #        feedback_str = "Carmin小幫手推薦這張信用卡:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
+                #        message2 = TextSendMessage(text=feedback_str)
+                #        line_bot_api.reply_message(event.reply_token,[message1,message2])
+                #    else:
+                #        line_bot_api.reply_message(event.reply_token, [message1, "抱歉，找不到符合您需求的信用卡"])
+                #else:
+                #    # 處理 splitWords[0] 不存在的情況，例如：
+                #    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我找不到相關資訊"))
             else:
                 # 處理 matched_words 為空的情況，例如：
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我不明白您的意思"))

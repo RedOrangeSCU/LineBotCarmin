@@ -1,0 +1,2832 @@
+{
+  "name": "亞洲萬里通聯名白金卡優惠",
+  "systemPrompt": "",
+  "messages": [
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名白金卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "亞洲萬里通聯名白金卡 的優惠包含：旅平險: 2,000 萬, 國外消費哩程回饋: NT$ 15 /哩, 國內消費哩程回饋: NT$ 15 /哩, 國內消費哩程回饋 info: 哩程加速器特店，消費最高回饋NT$15/哩, 旅遊消費現金回饋: NT$ 15 /哩, 旅遊消費現金回饋 info: 指定哩程加速器特店旅行社/航空機票\n"
+            }
+          ],
+          "preprocessed": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "亞洲萬里通聯名白金卡 的優惠包含：旅平險: 2,000 萬, 國外消費哩程回饋: NT$ 15 /哩, 國內消費哩程回饋: NT$ 15 /哩, 國內消費哩程回饋 info: 哩程加速器特店，消費最高回饋NT$15/哩, 旅遊消費現金回饋: NT$ 15 /哩, 旅遊消費現金回饋 info: 指定哩程加速器特店旅行社/航空機票\n"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803040483-0.5477939960074767",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "預約線上預購: NT 2,000 萬\n行程前提: 必須登入會員網站，進行驗證\n特別優惠: 美國旅遊保險、法國旅遊保險、義大利旅遊保險、德國旅遊保險、英國旅遊保險"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 83.2912910626065,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.363,
+                  "promptTokensCount": 175,
+                  "predictedTokensCount": 70,
+                  "totalTokensCount": 245
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803042762-0.7156874198067695",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "新光三越聯名卡 的優惠包含：國內消費現金回饋: 1%, 國內消費現金回饋 info: 新光三越館內消費，週五～日：加碼0.7%，享1%現金回饋, 旅平險: 2,000 萬, 行動支付現金回饋: 1%, 百貨公司消費現金回饋: 1%, 百貨公司消費現金回饋 info: 新光三越館內最高\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 新光三越聯名卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803102077-0.19369833574589257",
+              "content": [],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0,
+                  "promptTokensCount": 409,
+                  "predictedTokensCount": 1,
+                  "totalTokensCount": 410
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803103466-0.33366086459300437",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名白金卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 亞洲萬里通聯名白金卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803117451-0.24742633366215272",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "亞洲萬里通聯名白金卡 的優惠包含：旅平險: 2,000 萬,國外消費哩程回饋: NT$ 15 /哩, 國內消費哩程回饋: NT$ 15 /哩,國內消費哩程回饋 info: 哩程加速器特店，消費最高回饋NT$15/哩, 旅遊消費現金回饋: NT $15 /哩, 旅遊消費現金回饋 info: 指定哩程加速器特店旅行社/航空機票"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 77.54910132522195,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.852,
+                  "promptTokensCount": 439,
+                  "predictedTokensCount": 143,
+                  "totalTokensCount": 582
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803120280-0.9624491148694088",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 新光三越聯名卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803131830-0.3934507782724399",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "新光三越聯名卡的優惠包含：\n\n*   一年免費預約線上預購\n*   2,000 萬國內消費現金回饋: 1%\n*   5,000萬國外消費哩程回饋: NT$15/哩"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 86.30167312678466,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.077,
+                  "promptTokensCount": 608,
+                  "predictedTokensCount": 69,
+                  "totalTokensCount": 677
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803133776-0.29696873769685195",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803144361-0.4945712357681977",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "長榮聯名極致無限卡的優惠包含：\n\n*   5,000萬國內消費現金回饋: 1%\n*   10,000萬國外消費哩程回饋: NT$30/哩\n*   2,000,000萬行程費抵扣, 1,000,000 萬行程費免費"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 79.87110456229257,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.998,
+                  "promptTokensCount": 706,
+                  "predictedTokensCount": 87,
+                  "totalTokensCount": 793
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803146537-0.9013233766476314",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "長榮聯名極致無限卡 的優惠包含：旅平險: 6,000 萬, 年費: NT$ 20,000, 年費 info: 正卡NT$20,000，附卡免年費, 飛行消費哩程回饋: NT$ 10 哩, 飛行消費哩程回饋 info: 長榮官網購票/機上免稅品/海外消費/國內旅行社團費最優NT$10=1哩, 旅遊消費哩程回饋: NT$ 20 /哩\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803228870-0.37977685254127524",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "長榮聯名極致無限卡的優惠包含：旅平險: 6,000 萬, 年費:NT$20,000, 年費 info: 正卡 NT$20,000，附卡免年費, 行程費抵扣，行程費免費"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 65.40874234561979,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.194,
+                  "promptTokensCount": 990,
+                  "predictedTokensCount": 63,
+                  "totalTokensCount": 1053
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803231091-0.7743484532037044",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803254462-0.5436234295150881",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "長榮聯名極致無限卡的優惠包含：旅平險: 6,000 萬, 年費:NT$20,000, 年費 info: 正卡 NT$20,000，附卡免年費, 行程費抵扣, 行程費免費、國內消費現金回饋: 1%、國外消費哩程回饋: NT $ 10 /哩"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 85.89097572148421,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.4,
+                  "promptTokensCount": 1082,
+                  "predictedTokensCount": 96,
+                  "totalTokensCount": 1178
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803257075-0.4877015363015873",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名世界卡 和 現金回饋御璽卡 哪張信用卡的國內消費現金回饋比較高？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "請注意，亞洲萬里通聯名世界卡 和 現金回饋御璽卡 的國內消費現金回饋可能會因不同的條件而有所不同，建議您仔細閱讀信用卡的條款和條件。\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 新光三越聯名卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803309006-0.6053757380455576",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "新光三越聯名卡的優惠包含：一年免費預約線上預購, 2,000萬國內消費現金回饋: 1%、5,000 萬國外消費哩程回饋: NT$15/哩"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 90.5657773490678,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.438,
+                  "promptTokensCount": 1314,
+                  "predictedTokensCount": 63,
+                  "totalTokensCount": 1377
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803311205-0.9269239428210803",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 everyday威士御璽卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "everyday威士御璽卡 的優惠包含：年費折抵: 首年免年費, 年費折抵 info: 持卡第二年起，凡當年度達成以下 3 項指定條件中任何 1 項，可免繳次年年費： 1）正卡年度累計交易次數達 12 次 2）正卡年度累計消費金額達 NT$30,000 3）全年度使用信用卡電子帳單, 平日電影折扣: 最優 6 折, 影音串流平台回饋: 25 元/10點, 影音串流平台回饋 info: 指定海外串流影音平台（包含：Netflix、Disney+、YouTube、Spotify、iTunes）享10倍活利積分（包含原消費所提供之１倍回饋）, 行動支付現金回饋: 15%, 行動支付現金回饋 info: 活動期間內刷 Apple Pay、Samsung Pay、LINE Pay、街口支付，消費筆數達10筆且每筆金額達NT$300， 登錄每筆享最高15%回饋，合計最高回饋NT$500刷卡金 !（需登錄，回饋名額共12,500名）\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 everyday威士御璽卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 everyday威士御璽卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803371481-0.19210717685540524",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "everyday威士御璽卡的優惠包含：年費折抵: 首年免年費, 年費折抵 info: 持卡第二年起，凡當年度達成以下 3 項指定條件中任何 1 項，可免繳次年年費： 1）正卡年度累計交易次數達 12 次 2）正卡年度累計消費金額達 NT$30,000 3）全年度使用信用卡電子帳單, 平日電影折扣: 最優 6 折, 影音串流平台回饋: 25 元/10點, 影音串流平台回饋 info: 指定海外串流影音平台（包含：Netflix、Disney+、YouTube、Spotify、iTunes）享10倍活利積分（包含原消費所提供之１倍回饋）、 行動支付現金回饋: 15%， 行動支付現金回饋 info: 活動期間內刷 Apple Pay、Samsung Pay、LINE Pay、街口支付，消費筆數達10筆且每筆金額達NT$300，登錄每筆享最高15%回饋，合計最高回饋NT$500刷卡金 !（需登錄，回饋名額共12,500名）"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 89.25193475653109,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.212,
+                  "promptTokensCount": 1722,
+                  "predictedTokensCount": 293,
+                  "totalTokensCount": 2015
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803375249-0.39927478273868067",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮航空簽帳白金卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "長榮航空簽帳白金卡 的優惠包含：國外消費哩程回饋: NT$ 16.67 /哩, 國外消費哩程回饋 info: 基本消費NT$25=1哩，海外消費加碼50%哩程回饋, 國內消費哩程回饋: NT$ 25 /哩, 機場貴賓室: 免費無限次使用, 機場貴賓室 info: 全球1,400間以上機場貴賓室，如The Centurion Lounge、Priority Pass、環亞機場貴賓室(Plaza Premium Lounge)、長榮航空指定機場貴賓室等, 旅遊消費現金回饋: 9 折, 旅遊消費現金回饋 info: 長榮航空官網指定艙等票價最優9折\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 鑽保卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "鑽保卡 的優惠包含：國內消費現金回饋: 0.7%, 年費折抵: 首年免年費, 年費折抵 info: 白金卡次年消費正卡2,400元，鈦金卡次年消費正附卡合併達6萬或12次，可享免年費優惠。, 保險消費現金回饋: 0.5%\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 美國運通 有哪些信用卡？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "美國運通 提供以下信用卡：長榮航空簽帳白金卡, 長榮航空簽帳金卡, 信用白金卡, 簽帳白金卡\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 鑽保卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "鑽保卡 的優惠包含：國內消費現金回饋: 0.7%, 年費折抵: 首年免年費, 年費折抵 info: 白金卡次年消費正卡2,400元，鈦金卡次年消費正附卡合併達6萬或12次，可享免年費優惠。, 保險消費現金回饋: 0.5%\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 美國運通 有哪些信用卡？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 美國運通 有哪些信用卡？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732803503031-0.8096518304052842",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "美國運通 提供以下信用卡：\n\n*   長榮航空簽帳白金卡\n*   長榮航空簽帳金卡\n*   信用白金卡\n*   簽帳白金卡"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 85.57424278680445,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.669,
+                  "promptTokensCount": 2589,
+                  "predictedTokensCount": 54,
+                  "totalTokensCount": 2643
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732803505390-0.17943562343886432",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 商務卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "商務卡 的優惠包含：國外消費現金回饋: 2.5%, 國外消費現金回饋 info: 於國外消費(含國外網站)享2.5%現金回饋無上限, 旅平險: 3,000 萬, 年費: NT$ 4,500, 年費 info: 正卡NT$4,500，附卡NT4,500\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 商務卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 商務卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805074971-0.4988819628818102",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "商務卡 的優惠包含：國外消費現金回饋: 2.5%、國外消費現金回饋 info: 於國外消費(含國外網站)享2.5%現金回饋無上限, 旅平險: 3,000 萬, 年費折抵: 首年免年費, 年費折抵 info: 商務卡次年消費正卡2,400元，商務卡次年消費正附卡合併達6萬或12次，可享免年費優惠."
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 82.31744670423915,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.298,
+                  "promptTokensCount": 2786,
+                  "predictedTokensCount": 129,
+                  "totalTokensCount": 2915
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805077964-0.5305934807284838",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "長榮聯名極致無限卡 的優惠包含：旅平險: 6,000 萬, 年費: NT$ 20,000, 年費 info: 正卡NT$20,000，附卡免年費, 飛行消費哩程回饋: NT$ 10 哩, 飛行消費哩程回饋 info: 長榮官網購票/機上免稅品/海外消費/國內旅行社團費最優NT$10=1哩, 旅遊消費哩程回饋: NT$ 20 /哩\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 長榮聯名極致無限卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805106203-0.606800042953519",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "長榮聯名極致無限卡的優惠包含：旅平險: 6,000萬，年費折抵: 首年免年費，year費折抵 info: 持卡第二年起凡當年度達成以下3個指定條件中任何一個可免繳次年年費： 1）正卡年度累計交易次數達12次 2）正卡年度累計消費金額達NT$30,000 3）全年度使用信用卡電子帳單，平日電影折扣: 最優6折, 影音串流平台回饋: 25元/10點, 影音串流平台回饋 info: 指定海外串流影音平台（包括：Netflix、Disney+、YouTube、Spotify、iTunes）享10倍活利積分（含原消費所提供之1倍回饋）、 行動支付現金回饋: 15%， 行動支付現金回饋 info: 活動期間內刷Apple Pay、Samsung Pay、LINE Pay、街口付，消費筆數達10筆且每筆金額達NT$300，登錄每筆享最高15%回饋，合計最高回饋NT$500刷卡金！（需登錄，回饋名額共12,500名）"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 87.05111694523515,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.35,
+                  "promptTokensCount": 3112,
+                  "predictedTokensCount": 296,
+                  "totalTokensCount": 3408
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805111229-0.037772910527994696",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 現金回饋御璽卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "現金回饋御璽卡 的優惠包含：國內消費現金回饋: 1.22%, 旅平險: 2,000 萬, 年費折抵 info: 次年起，使用非紙本帳單(電子帳單或行動帳單)或是前一年消費滿8萬或12次，享免年費, 年費: 首年免年費, 保險消費現金回饋: 1.22%\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 CUBE卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "CUBE卡 的優惠包含：國內消費現金回饋: 最高 3.3%, 國內消費現金回饋 info: 回饋小樹點(信用卡) 1點小樹點 (信用卡) ＝NT$1, 國外消費現金回饋: 最高 3.3%, 國外消費現金回饋 info: 小樹點(信用卡), 加油消費現金回饋: 2%, 加油消費現金回饋 info: 小樹點(信用卡)\n"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 CUBE卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 CUBE卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805161978-0.42269447183980824",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "CUBE卡 的優惠包含：國內消費現金回饋: 0.1%, 旅游消費現金回饋: NT$20/哩, 年費折抵 info: 次年起，使用非紙本帳單(電子帳單或行動帳單)或是前一年消費滿8萬或12次，可享免年費, 保險消費現金回饋: 0.1%"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 82.83665180750387,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.478,
+                  "promptTokensCount": 3718,
+                  "predictedTokensCount": 102,
+                  "totalTokensCount": 3820
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805164791-0.26655409527343155",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 凱基銀行 有哪些信用卡？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "凱基銀行 提供以下信用卡：雙幣哩程卡"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 旅人御璽卡 開戶專案 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "旅人御璽卡 開戶專案 的優惠包含：旅平險: 2,000 萬, 年費: NT$ 2,500, 國外消費哩程回饋: NT$ 15 /哩, 國內消費哩程回饋: NT$ 18 /哩"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 旅人御璽卡 開戶專案 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 旅人御璽卡 開戶專案 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805217891-0.4350638000765885",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "旅人御璽卡 開戶專案的優惠包含：國內消費現金回饋: 1.22%， 年費折抵 info: 次年起，使用非紙本帳單(電子帳單或行動帳單)或是前一年消費滿8萬或12次，可享免年費, 保險消費現金回饋: 0.1%"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 77.91996506445523,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.367,
+                  "promptTokensCount": 3991,
+                  "predictedTokensCount": 91,
+                  "totalTokensCount": 4082
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805220532-0.8450739799614917",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名世界卡 和 現金回饋御璽卡 哪張信用卡的國內消費現金回饋比較高？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "請注意，亞洲萬里通聯名世界卡 和 現金回饋御璽卡 的國內消費現金回饋可能會因不同的條件而有所不同，建議您仔細閱讀信用卡的條款和條件。"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名世界卡 和 現金回饋御璽卡 哪張信用卡的國內消費現金回饋比較高？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 亞洲萬里通聯名世界卡 和 現金回饋御璽卡 哪張信用卡的國內消費現金回饋比較高？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805269191-0.18619022735046364",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "亞洲萬里通聯名世界卡的國內消費現金回饋為1.22%，現金回饋御璽卡的國內消費現金回饋為1.19%"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 98.6926248411351,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.702,
+                  "promptTokensCount": 2223,
+                  "predictedTokensCount": 49,
+                  "totalTokensCount": 2272
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805271437-0.18540749719290428",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 台北富邦 有哪些信用卡？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "台北富邦 提供以下信用卡：JU卡, J卡, 數位生活卡, 鑽保卡"
+            }
+          ],
+          "preprocessed": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "台北富邦 提供以下信用卡：JU卡, J卡, 數位生活卡, 鑽保卡"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 台北富邦 有哪些信用卡？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 台北富邦 有哪些信用卡？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805319943-0.5352532037178976",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "台北富邦 提供以下信用卡：JU卡, J卡, 數位生活卡, 鑽保卡"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 62.19354968844393,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.072,
+                  "promptTokensCount": 2343,
+                  "predictedTokensCount": 37,
+                  "totalTokensCount": 2380
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true,
+              "edited": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805321657-0.4551830864802686",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 台北富邦 有哪些信用卡？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 台北富邦 有哪些信用卡？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805343748-0.5191741043548612",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "台北富邦 提供以下信用卡：JU卡, J卡, 數位生活卡, 鑽保卡"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 81.16787634250491,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.223,
+                  "promptTokensCount": 2393,
+                  "predictedTokensCount": 69,
+                  "totalTokensCount": 2462
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true,
+              "edited": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805345898-0.1205819961225858",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 台北富邦 有哪些信用卡？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 台北富邦 有哪些信用卡？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805377267-0.2673653857747278",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "台北富邦 提供以下信用卡：\n\n*   JU卡\n*   J卡\n*   數位生活卡\n*   鑽保卡"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 75.42694795331072,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.201,
+                  "promptTokensCount": 2443,
+                  "predictedTokensCount": 36,
+                  "totalTokensCount": 2479
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805378994-0.1369019851556581",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "新光三越聯名卡 的優惠包含：國內消費現金回饋: 1%, 國內消費現金回饋 info: 新光三越館內消費，週五～日：加碼0.7%，享1%現金回饋, 旅平險: 2,000 萬, 行動支付現金回饋: 1%, 百貨公司消費現金回饋: 1%, 百貨公司消費現金回饋 info: 新光三越館內最高"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 新光三越聯名卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 新光三越聯名卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 新光三越聯名卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805408318-0.014838248044612534",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "新光三越聯名卡 的優惠包含：國內消費現金回饋: 0.8%, 旅平險: 2,000 萬，年費折抵 info: 次年起，使用非紙本帳單(電子帳單或行動帳單)或是前一年消費滿8萬或12次，可享免年費, 行動支付現金回饋: 1%, 百貨公司消費現金回饋: 0.8%"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 83.81502025030757,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.263,
+                  "promptTokensCount": 2669,
+                  "predictedTokensCount": 112,
+                  "totalTokensCount": 2781
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805410041-0.38860890257156466",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 快樂信用卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 快樂信用卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "快樂信用卡 的優惠包含：國內消費現金回饋: 5%, 國內消費現金回饋 info: 指定百貨/藥妝/網購、咖啡與服飾，享最高5%回饋, 國外消費現金回饋: 3%, 國外消費現金回饋 info: 外幣消費刷滿額最高享3%回饋, 國內線上消費現金回饋: 5%, 大眾交通消費現金回饋: 3%"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 CUBE卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 CUBE卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "CUBE卡 的優惠包含：國內消費現金回饋: 最高 3.3%, 國內消費現金回饋 info: 回饋小樹點(信用卡) 1點小樹點 (信用卡) ＝NT$1, 國外消費現金回饋: 最高 3.3%, 國外消費現金回饋 info: 小樹點(信用卡), 加油消費現金回饋: 2%, 加油消費現金回饋 info: 小樹點(信用卡)"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 CUBE卡 的優惠有哪些？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 CUBE卡 的優惠有哪些？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805492719-0.4518032717174778",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "CUBE卡 的優惠包含：國內消費現金回饋: 最高 3.8%，國內消費現金回饋 info: 回饋小樹點(信用卡) 1點小樹點 (信用卡) ＝NT$1.0, 國外消費現金回饋: 最高 4.5%，國外消費現金回饋 info: 小樹點(信用卡)，加油消費現金回饋: 2%, 加油消費現金回饋 info: 小樹點(信用卡)"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 80.65541833794,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.921,
+                  "promptTokensCount": 3106,
+                  "predictedTokensCount": 130,
+                  "totalTokensCount": 3236
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805495372-0.048811419811525925",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名里享卡 和 英雄聯盟信用卡 哪張信用卡的國內消費現金回饋比較高？"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "請注意，亞洲萬里通聯名里享卡 和 英雄聯盟信用卡 的國內消費現金回饋可能會因不同的條件而有所不同，建議您仔細閱讀信用卡的條款和條件。"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "請問 亞洲萬里通聯名里享卡 和 英雄聯盟信用卡 哪張信用卡的國內消費現金回饋比較高？"
+            }
+          ],
+          "preprocessed": {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "請問 亞洲萬里通聯名里享卡 和 英雄聯盟信用卡 哪張信用卡的國內消費現金回饋比較高？"
+              }
+            ]
+          }
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1732805526140-0.9309207457255206",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "亞洲 萬里通聯名里享卡 的國內消費現金回饋為3.8%， 英雄聯盟信用卡的國內消費現金回饋為1.22%"
+                }
+              ],
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true,
+              "genInfo": {
+                "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+                "identifier": "llama-3.2-1b-instruct",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.llama.cpuThreadPoolSize",
+                      "value": 6
+                    },
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+                          "bosToken": "<|begin_of_text|>",
+                          "eosToken": "<|eot_id|>",
+                          "inputFormat": "promptWithNumberedImages2"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 6
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 82.92128066510077,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.35,
+                  "promptTokensCount": 3390,
+                  "predictedTokensCount": 46,
+                  "totalTokensCount": 3436
+                }
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1732805528102-0.4103871358289577",
+              "debugInfo": "Conversation naming technique: 'prompt'"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    }
+  ],
+  "usePerChatPredictionConfig": true,
+  "preset": "",
+  "perChatPredictionConfig": {
+    "fields": []
+  },
+  "tokenCount": 6728,
+  "createdAt": 1732802767537,
+  "pinned": false,
+  "clientInput": "",
+  "clientInputFiles": [],
+  "userFilesSizeBytes": 0,
+  "lastUsedModel": {
+    "indexedModelIdentifier": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF/llama-3.2-1b-instruct-q8_0.gguf",
+    "identifier": "llama-3.2-1b-instruct",
+    "instanceLoadTimeConfig": {
+      "fields": []
+    },
+    "instanceOperationTimeConfig": {
+      "fields": []
+    }
+  },
+  "notes": []
+}
