@@ -128,7 +128,8 @@ def handle_message(event):
             else:
                 response = "找不到答案，請重新 phrasing 你的問題。"
                 # 傳送回覆
-            line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+            print('a:'+list(response.keys()))
+            #line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
 
             #jiebaQuestionList = jieba.cut(questionSentance) # text_message = ' | '.join(jiebaQuestionList)  # 將生成器轉換為字串
             #jieba.initialize() # 載入 jieba 詞典        
