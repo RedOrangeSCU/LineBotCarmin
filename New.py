@@ -119,32 +119,43 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=noneMessage))
 
         else:
-            jiebaQuestionList = jieba.cut(questionSentance) # text_message = ' | '.join(jiebaQuestionList)  # 將生成器轉換為字串
-            jieba.initialize() # 載入 jieba 詞典        
-            words = jieba.cut(questionSentance)# 斷詞
-            dictionary_words = set(jieba.dt.FREQ.keys())  # 獲取jieba詞典
-            with open('Real_userdict_1.txt', 'r', encoding='utf-8') as f:  # 加入Real_userdict_1.txt 中的詞彙
-                for line in f:
-                    word = line.strip().split(' ')[0]
-                    dictionary_words.add(word)
-            matched_words = [word for word in words if word in dictionary_words] # 篩選出字典中存在的詞彙
-            dictWords = ("|".join(matched_words))  # 輸出匹配的詞彙
-            if matched_words:
-                confirmMessate = '原來你對' + matched_words[0] + "有興趣呀?"
-                message1 = TextSendMessage(text=confirmMessate)
-                splitWords = dictWords.split('|')
-
-                # 使用者傳送的訊息
-                user_message = event.message.text
+            user_message = event.message.text # 使用者傳送的訊息
                 # 搜尋最相似問題
-                most_similar_question = find_most_similar_question(user_message, qa_dict.keys())
+            most_similar_question = find_most_similar_question(user_message, qa_dict.keys())
                 # 返回答案或預設回覆
-                if most_similar_question:
-                     response = qa_dict[most_similar_question]
-                else:
-                    response = "找不到答案，請重新 phrasing 你的問題。"
+            if most_similar_question:
+                response = qa_dict[most_similar_question]
+            else:
+                response = "找不到答案，請重新 phrasing 你的問題。"
                 # 傳送回覆
-                line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+            line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+
+            #jiebaQuestionList = jieba.cut(questionSentance) # text_message = ' | '.join(jiebaQuestionList)  # 將生成器轉換為字串
+            #jieba.initialize() # 載入 jieba 詞典        
+            #words = jieba.cut(questionSentance)# 斷詞
+            #dictionary_words = set(jieba.dt.FREQ.keys())  # 獲取jieba詞典
+            #with open('Real_userdict_1.txt', 'r', encoding='utf-8') as f:  # 加入Real_userdict_1.txt 中的詞彙
+            #    for line in f:
+            #        word = line.strip().split(' ')[0]
+            #        dictionary_words.add(word)
+            #matched_words = [word for word in words if word in dictionary_words] # 篩選出字典中存在的詞彙
+            #dictWords = ("|".join(matched_words))  # 輸出匹配的詞彙
+            #if matched_words:
+            #    confirmMessate = '原來你對' + matched_words[0] + "有興趣呀?"
+            #    message1 = TextSendMessage(text=confirmMessate)
+            #    splitWords = dictWords.split('|')
+
+            #    # 使用者傳送的訊息
+            #    user_message = event.message.text
+            #    # 搜尋最相似問題
+            #    most_similar_question = find_most_similar_question(user_message, qa_dict.keys())
+            #    # 返回答案或預設回覆
+            #    if most_similar_question:
+            #         response = qa_dict[most_similar_question]
+            #    else:
+            #        response = "找不到答案，請重新 phrasing 你的問題。"
+            #    # 傳送回覆
+            #    line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
 
                 
                 #if splitWords[0] in df.columns:
@@ -165,9 +176,9 @@ def handle_message(event):
                 #else:
                 #    # 處理 splitWords[0] 不存在的情況，例如：
                 #    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我找不到相關資訊"))
-            else:
-                # 處理 matched_words 為空的情況，例如：
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我不明白您的意思"))
+            #else:
+            #    # 處理 matched_words 為空的情況，例如：
+            #    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我不明白您的意思"))
                 
 
 
