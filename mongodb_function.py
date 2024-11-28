@@ -125,19 +125,9 @@ def col_find(key):
 #    return answer
 
 
-
+#這個函式會從一個問題列表中找到與使用者訊息最相似的問題。
 def find_most_similar_question(user_message, questions):
-  """
-  這個函式會從一個問題列表中找到與使用者訊息最相似的問題。
-
-  Args:
-    user_message: 使用者輸入的訊息。
-    questions: 問題列表。
-
-  Returns:
-    最相似的問題，如果找不到則返回 None。
-  """
-
+ 
   # 使用 TF-IDF 將文字轉換為向量
   vectorizer = TfidfVectorizer()
   tfidf_matrix = vectorizer.fit_transform([user_message] + questions)
