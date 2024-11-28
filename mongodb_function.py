@@ -130,7 +130,7 @@ def find_most_similar_question(user_message, questions):
  
   # 使用 TF-IDF 將文字轉換為向量
   vectorizer = TfidfVectorizer()
-  tfidf_matrix = vectorizer.fit_transform([user_message] + questions)
+  tfidf_matrix = vectorizer.fit_transform([user_message] + list(questions.keys()))
 
   # 計算餘弦相似度
   similarities = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1:])
