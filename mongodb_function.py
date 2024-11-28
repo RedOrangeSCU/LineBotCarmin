@@ -7,6 +7,11 @@ from langchain.document_loaders import CSVLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores import MongoDBAtlasVectorSearch
 
+import json
+import numpy as np
+from sentence_transformers import SentenceTransformer  # 匯入 SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+
 # 從環境變數中獲取 MongoDB URI
 MONGODB_URI = os.environ.get('MONGODB_URI')
 
@@ -94,6 +99,31 @@ def col_find(key):
             break
     print(data)
     return data
+
+def usingNPY(question):
+    with open('qa_pairs.json', 'r', encoding='utf-8') as f:     # 載入 JSON 檔案
+        data = json.load(f)     
+    embeddings = np.load('embeddings.npy') # 載入 Embedding
+    texts = [f"{item['question']} - {item['answer']}" for item in data] # 假設您的 JSON 檔案包含 "text" 鍵 或者，組合多個鍵的值
+    
+    llm = OpenAI(temperature=0) # 初始化 LLM
+    query = question # 使用者查詢
+    # 初始化 Sentence-BERT 模型
+    model = SentenceTransformer('all-mpnet-base-v2')  # 初始化模型
+    # 嵌入查詢 (如果需要重新計算 Embedding)
+    query_embedding = model.encode(query)
+    #計算相似度
+    similarities = cosine_similarity(query_embedding.reshape(1, -1), embeddings)
+    # 找到最相似的項目
+    most_similar_index = np.argmax(similarities)
+    # 獲取最相似項目的上下文資訊
+    context = texts[most_similar_index]
+    # 將上下文資訊和查詢一起傳遞給 LLM
+    prompt = f"根據以下資訊回答問題：\n\n{context}\n\n問題：{query}"
+    answer = llm(prompt)
+    return answer
+
+    
 
 if __name__ == '__main__':
     print(read_many_datas())
