@@ -31,8 +31,12 @@ qa_pairs = []
 for message in data['messages']:
     if len(message['versions']) > 0 and message['versions'][0]['role'] == 'user':
         question = message['versions'][0]['content'][0]['text']
+    if len(message['versions']) > 1 and len(message['versions'][1]['content']) > 0:
         answer = message['versions'][1]['content'][0]['text']
-        qa_pairs.append((question, answer))
+    else:
+    # 處理 message['versions'][1]['content'] 列表為空的情況
+        answer = "找不到答案"  # 或其他預設回覆
+    qa_pairs.append((question, answer))
 
 # 建立問答知識庫
 qa_dict = {question: answer for question, answer in qa_pairs}
