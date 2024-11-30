@@ -131,7 +131,7 @@ def handle_message(event):
             else:
                 response = "找不到答案，請重新 phrasing 你的問題。"
                 # 傳送回覆
-            line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+            line_bot_api.reply_message( event.reply_token, TextSendMessage(text=hasAnswer))
             #print('a:'+list(response.keys()))
             #line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
 
