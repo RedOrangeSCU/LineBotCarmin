@@ -10,8 +10,8 @@ from langchain.vectorstores import MongoDBAtlasVectorSearch
 import json
 import numpy as np
 #from sentence_transformers import SentenceTransformer  # 匯入 SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn.metrics.pairwise import cosine_similarity
+#from sklearn.feature_extraction.text import TfidfVectorizer
 
 # 從環境變數中獲取 MongoDB URI
 MONGODB_URI = os.environ.get('MONGODB_URI')
@@ -126,21 +126,21 @@ def col_find(key):
 
 
 #這個函式會從一個問題列表中找到與使用者訊息最相似的問題。
-def find_most_similar_question(user_message, questions):
+#def find_most_similar_question(user_message, questions):
  
-  # 使用 TF-IDF 將文字轉換為向量
-  vectorizer = TfidfVectorizer()
-  print(questions)
-  tfidf_matrix = vectorizer.fit_transform([user_message] + list(questions))
+#  # 使用 TF-IDF 將文字轉換為向量
+#  vectorizer = TfidfVectorizer()
+#  print(questions)
+#  tfidf_matrix = vectorizer.fit_transform([user_message] + list(questions))
 
-  # 計算餘弦相似度
-  similarities = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1:])
+#  # 計算餘弦相似度
+#  similarities = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1:])
 
-  # 找到最相似的問題
-  most_similar_index = similarities.argmax()
-  most_similar_question = questions[most_similar_index]
+#  # 找到最相似的問題
+#  most_similar_index = similarities.argmax()
+#  most_similar_question = questions[most_similar_index]
 
-  return most_similar_question
+#  return most_similar_question
 
 if __name__ == '__main__':
     print(read_many_datas())
