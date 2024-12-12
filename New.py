@@ -46,7 +46,7 @@ qa_dict = {question: answer for question, answer in qa_pairs}
 user_questions = {}
 
 # 設定預設詞彙列表
-special_words = {"好", "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好", "HI", "hi", "Hello"}
+special_words = { "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好", "HI", "hi", "Hello"}
 
 @app.route("/callback", methods=['POST'])
 def callback():
