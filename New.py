@@ -21,6 +21,18 @@ df = pd.read_csv('CSV_20241208_Base.csv')
 # 載入字典
 file_path = 'Real_userdict_1.txt'
 jieba.load_userdict(file_path)
+# 讀取 CSV 檔案
+df = pd.read_csv('CSV_20241208_Base.csv')
+
+# 載入字典
+file_path2 = 'Real_userdict_2.txt'
+
+# 建立一個字典來儲存詞彙和權重
+dictionary_words = {}  
+with open(file_path2, 'r', encoding='utf-8') as f:
+    for line in f:
+        word, weight = line.strip().split(' ')
+        dictionary_words[word] = int(weight)  # 將權重轉換為整數
 
 # 載入 JSON 檔案
 with open('LMStudio_V1.json', 'r', encoding='utf-8') as f:
@@ -119,72 +131,68 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=noneMessage))
 
         else:
-            user_message = event.message.text # 使用者傳送的訊息
-            hasAnswer = '我有找到答案'
-           
-            #    # 搜尋最相似問題
-            #most_similar_question = find_most_similar_question(questionSentance, qa_dict.keys())
-            #    # 返回答案或預設回覆
-            #if most_similar_question:
-            #    response = qa_dict[most_similar_question]
-                
-            #else:
-            #    response = "找不到答案，請重新 phrasing 你的問題。"
-            #    # 傳送回覆
-            #line_bot_api.reply_message( event.reply_token, TextSendMessage(text=hasAnswer))
-            #print('a:'+list(response.keys()))
-            #line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+                        # 清空 Jieba 預設詞典
+            jieba.dt.FREQ = {}  
+            
+            # 載入自訂詞典
+            jieba.load_userdict(file_path)
+            
+            # 使用搜索引擎模式切分
+            words = jieba.cut_for_search(questionSentance)            
 
-            jiebaQuestionList = jieba.cut(questionSentance) # text_message = ' | '.join(jiebaQuestionList)  # 將生成器轉換為字串
-            jieba.initialize() # 載入 jieba 詞典        
-            words = jieba.cut(questionSentance)# 斷詞
-            dictionary_words = set(jieba.dt.FREQ.keys())  # 獲取jieba詞典
-            with open('Real_userdict_1.txt', 'r', encoding='utf-8') as f:  # 加入Real_userdict_1.txt 中的詞彙
-                for line in f:
-                    word = line.strip().split(' ')[0]
-                    dictionary_words.add(word)
-            matched_words = [word for word in words if word in dictionary_words] # 篩選出字典中存在的詞彙
+            # 篩選出字典中存在的詞彙
+            matched_words = [word for word in words if word in dictionary_words]
+            
+            # 根據權重排序 matched_words (權重高的詞彙排前面)
+            matched_words.sort(key=lambda word: dictionary_words[word], reverse=True)
+
+           
+            #根據user 問題,排除special_words後,再將問題split 後再去資料集裡面尋找資料
             dictWords = ("|".join(matched_words))  # 輸出匹配的詞彙
             if matched_words:
                 confirmMessate = '原來你對' + matched_words[0] + "有興趣呀?"
-                message1 = TextSendMessage(text=confirmMessate)
                 splitWords = dictWords.split('|')
-
                 # 使用者傳送的訊息
-                user_message = event.message.text
-                # 搜尋最相似問題
-                #most_similar_question = find_most_similar_question(user_message, qa_dict.keys())
-                ## 返回答案或預設回覆
-                #if most_similar_question:
-                #     response = qa_dict[most_similar_question]
-                #else:
-                #    response = "找不到答案，請重新 phrasing 你的問題。"
-                ## 傳送回覆
-                #line_bot_api.reply_message( event.reply_token, TextSendMessage(text=response))
+                user_message = event
+                # 迭代 splitWords 中的每個詞彙
+                matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的列
+                for word in splitWords:# 迭代 DataFrame 的每一欄
+                    for col in df.columns:                    # 在當前欄位中搜尋符合的資料
+                        matched_row = df[df[col].astype(str).str.contains(word)]
+                        if not matched_row.empty:
+                            matched_rows = pd.concat([matched_rows, matched_row])
+                            break  # 找到匹配的資料後跳出內層迴圈
 
-                
-                if splitWords[0] in df.columns:
-                    matched_values = df[splitWords[0]].unique() # 取得 splitWords[0] 欄位的所有唯一值
-                    matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的
-                    for matched_value in matched_values:## 迭代所有 matched_values，找到符合條件的列
-                        matched_row = df[df[splitWords[0]] == matched_value]  # 找到符合條件的列
-                        matched_rows = pd.concat([matched_rows, matched_row])  # 將匹配的列加入 matched_rows      
-                    if not matched_row.empty: # 使用 dictWords 搜尋符合的資料     
-                        first_match = matched_row.iloc[0]  # 取得第一筆符合的資料
-                        feedback = first_match.to_dict()  # 將 Series 轉換為 dict
-                        feedback = {key: value for key, value in feedback.items() if pd.notna(value)}  # 篩選掉 value 為 nan 的 key-value pairs                   
-                        feedback_str = "Carmin小幫手推薦這張信用卡:\n" + "\n".join([f"{key}: {value}" for key, value in feedback.items()])  # 組合回覆訊息
-                        message2 = TextSendMessage(text=feedback_str)
-                        line_bot_api.reply_message(event.reply_token,[message1,message2])
-                    else:
-                        line_bot_api.reply_message(event.reply_token, [message1, "抱歉，找不到符合您需求的信用卡"])
+                if not matched_rows.empty:
+                    # 將所有匹配的列整理成字串
+                    feedback_str = ""
+                    for idx, row in matched_rows.iterrows():
+                        if feedback_str in f"{row['Bank']}{row['CreditCard']}":
+                            feedback_str = f"{row['Bank']}{row['CreditCard']}擁有 {row['discount']} "
+                            if not pd.isna(row['discountInfo']):
+                                feedback_str+=f"，{row['discountInfo']}"
+                            feedback_str+=f"\n"
+                        else:
+                            if "還有還有" in feedback_str:
+                                if "以及，" in feedback_str:
+                                    feedback_str += f"最重要的{row['discount']}在等著你"
+
+                                else:
+                                    feedback_str += f"以及，{row['discount']}"                                    
+                            else:
+                                feedback_str += f"還有還有，{row['discount']}"                         
+
+                            if not pd.isna(row['discountInfo']):
+                                feedback_str+=f"，{row['discountInfo']}"
+                            feedback_str+=f"\n"
+                            if "最重要的" in feedback_str:
+                                break
+                    line_bot_api.reply_message(event.reply_token,[confirmMessate,feedback_str,f"\n希望以上資訊有滿足您的需求！"])
                 else:
-                    # 處理 splitWords[0] 不存在的情況，例如：
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我找不到相關資訊"))
-            else:
-                # 處理 matched_words 為空的情況，例如：
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="抱歉，我不明白您的意思"))
-                
+                    line_bot_api.reply_message(event.reply_token,[confirmMessate, "抱歉，找不到符合您需求的信用卡"])
+            else:    # 處理 matched_words 為空的情況，例如：
+                line_bot_api.reply_message(event.reply_token,TextSendMessage(text="抱歉，我不明白您的意思"))
+               
 
 
     except Exception as e:
@@ -193,6 +201,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text='發生錯誤')
         )
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
