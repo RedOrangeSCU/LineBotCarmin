@@ -4,9 +4,6 @@ from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain.document_loaders import CSVLoader
 
-from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import MongoDBAtlasVectorSearch
-
 import json
 import numpy as np
 
