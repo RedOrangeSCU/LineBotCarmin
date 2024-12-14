@@ -27,6 +27,9 @@ df = pd.read_csv('CSV_20241208_Base.csv')
 # 載入字典
 file_path2 = 'Real_userdict_2.txt'
 
+#載入問答集
+QApath = r"TestLineBot.xlsx"
+
 # 建立一個字典來儲存詞彙和權重
 dictionary_words = {}  
 with open(file_path2, 'r', encoding='utf-8') as f:
@@ -125,7 +128,7 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=noneMessage))
 
         else:
-            returnMsg = get_answer_from_excel(questionSentance)
+            returnMsg = get_answer_from_excel(questionSentance,QApath)
             if returnMsg is None:
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="抱歉，我不明白您的意思"))
             else:
