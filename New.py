@@ -10,7 +10,7 @@ from flask import Flask, request, abort
 from mongodb_function import *
 
 import json
-
+from openpyxl import load_workbook
 
 app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
@@ -131,67 +131,12 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=noneMessage))
 
         else:
-                        # 清空 Jieba 預設詞典
-            jieba.dt.FREQ = {}  
-            
-            # 載入自訂詞典
-            jieba.load_userdict(file_path)
-            
-            # 使用搜索引擎模式切分
-            words = jieba.cut_for_search(questionSentance)            
-
-            # 篩選出字典中存在的詞彙
-            matched_words = [word for word in words if word in dictionary_words]
-            
-            # 根據權重排序 matched_words (權重高的詞彙排前面)
-            matched_words.sort(key=lambda word: dictionary_words[word], reverse=True)
-
-           
-            #根據user 問題,排除special_words後,再將問題split 後再去資料集裡面尋找資料
-            dictWords = ("|".join(matched_words))  # 輸出匹配的詞彙
-            if matched_words:
-                confirmMessate = '原來你對' + matched_words[0] + "有興趣呀?"
-                splitWords = dictWords.split('|')
-                # 使用者傳送的訊息
-                user_message = event
-                # 迭代 splitWords 中的每個詞彙
-                matched_rows = pd.DataFrame()  # 建立一個空的 DataFrame 來儲存所有匹配的列
-                for word in splitWords:# 迭代 DataFrame 的每一欄
-                    for col in df.columns:                    # 在當前欄位中搜尋符合的資料
-                        matched_row = df[df[col].astype(str).str.contains(word)]
-                        if not matched_row.empty:
-                            matched_rows = pd.concat([matched_rows, matched_row])
-                            break  # 找到匹配的資料後跳出內層迴圈
-
-                if not matched_rows.empty:
-                    # 將所有匹配的列整理成字串
-                    feedback_str = ""
-                    for idx, row in matched_rows.iterrows():
-                        if feedback_str in f"{row['Bank']}{row['CreditCard']}":
-                            feedback_str = f"{row['Bank']}{row['CreditCard']}擁有 {row['discount']} "
-                            if not pd.isna(row['discountInfo']):
-                                feedback_str+=f"，{row['discountInfo']}"
-                            feedback_str+=f"\n"
-                        else:
-                            if "還有還有" in feedback_str:
-                                if "以及，" in feedback_str:
-                                    feedback_str += f"最重要的{row['discount']}在等著你"
-
-                                else:
-                                    feedback_str += f"以及，{row['discount']}"                                    
-                            else:
-                                feedback_str += f"還有還有，{row['discount']}"                         
-
-                            if not pd.isna(row['discountInfo']):
-                                feedback_str+=f"，{row['discountInfo']}"
-                            feedback_str+=f"\n"
-                            if "最重要的" in feedback_str:
-                                break
-                    line_bot_api.reply_message(event.reply_token,[confirmMessate,feedback_str,f"\n希望以上資訊有滿足您的需求！"])
-                else:
-                    line_bot_api.reply_message(event.reply_token,[confirmMessate, "抱歉，找不到符合您需求的信用卡"])
-            else:    # 處理 matched_words 為空的情況，例如：
+            returnMsg = get_answer_from_excel(questionSentance)
+            if returnMsg is None:
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="抱歉，我不明白您的意思"))
+            else:
+                line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))
+                
                
 
 
@@ -201,6 +146,41 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text='發生錯誤')
         )
+
+from openpyxl import load_workbook
+def get_answer_from_excel(question, excel_file):
+  """
+  使用 openpyxl 讀取 Excel 檔案，確認輸入的問題是否在 A 欄的內容中，
+  如果是，則回傳對應 B 欄的內容。
+
+  Args:
+    question: 輸入的問題。
+    excel_file: Excel 檔案的路徑。
+
+  Returns:
+    如果問題存在於 A 欄，則返回對應 B 欄的內容，否則返回 None。
+  """
+  try:
+    # 載入 Excel 檔案
+    workbook = load_workbook(excel_file)
+
+    # 選擇第一個工作表
+    sheet = workbook.active
+
+    for row in sheet.iter_rows(min_row=1, min_col=1, max_col=1):  # 從第一行開始
+        cell = row[0]
+        a_value = cell.value
+        if a_value == question:
+            # 找到匹配的問題，返回對應 B 欄的內容
+            b_value = sheet.cell(row=cell.row, column=2).value
+            return b_value
+
+    # 找不到匹配的問題
+    return None
+
+  except Exception as e:
+    print(f"發生錯誤：{e}")
+    return None
 
 import os
 if __name__ == "__main__":
