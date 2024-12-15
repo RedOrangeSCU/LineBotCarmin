@@ -12,6 +12,7 @@ from mongodb_function import *
 import json
 from openpyxl import load_workbook
 
+import time
 app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
 handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
@@ -63,6 +64,11 @@ user_questions = {}
 # 設定預設詞彙列表
 special_words = { "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好",  "Hello"}
 
+# 使用者最後互動時間
+user_last_interaction_time = {}
+
+# 30 秒逾時訊息
+TIMEOUT_MESSAGE = "希望這些資訊能幫助您，如有任何問題，隨時歡迎與我們聯繫。"
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -92,6 +98,8 @@ def handle_special_words(sentence):
 def handle_message(event):
     try:
         user_id = event.source.user_id
+        # 更新使用者最後互動時間
+        user_last_interaction_time[user_id] = time.time()
         questionSentance = event.message.text  # 使用者啟動對話之內容
         if '@讀取' in questionSentance:
             datas = read_many_datas()
@@ -133,7 +141,14 @@ def handle_message(event):
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="抱歉，我不明白您的意思"))
             else:
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))
-                
+                # 啟動計時器
+                def send_timeout_message():
+                    if time.time() - user_last_interaction_time.get(user_id, 0) > 30:
+                        line_bot_api.push_message(user_id, TextSendMessage(text=TIMEOUT_MESSAGE))
+                # 使用 Timer 延遲 30 秒執行 send_timeout_message 函式
+                from threading import Timer
+                timer = Timer(30, send_timeout_message)
+                timer.start()
                
 
 
