@@ -62,7 +62,7 @@ qa_dict = {question: answer for question, answer in qa_pairs}
 user_questions = {}
 
 # 設定預設詞彙列表
-special_words = { "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好",  "Hello"}
+special_words = { "早安", "晚安", "午安", "有問題", "嗨", "你好", "您好",  "Hello","滿意","不滿意"}
 
 # 使用者最後互動時間
 user_last_interaction_time = {}
@@ -131,8 +131,13 @@ def handle_message(event):
 
     #======MongoDB操作範例======
         result = handle_special_words(questionSentance)
-        if result is None:    
-            noneMessage ='您好！請問您想了解哪方面的資訊呢？'
+        if result is None:
+            if '滿意' in questionSentance:
+                noneMessage = '感謝您的回饋！Carmin小幫手給你優惠每一天！'
+            elif '不滿意' in questionSentance:
+                noneMessage = '抱歉沒有提供您所需要的資訊，Carmin小幫手會再繼續加油的！'   
+            else:
+                noneMessage ='您好！請問您想了解哪方面的資訊呢？'
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=noneMessage))
 
         else:
