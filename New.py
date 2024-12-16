@@ -140,11 +140,16 @@ def handle_message(event):
             if returnMsg is None:
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="抱歉，我不明白您的意思"))
             else:
-                
-                line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))
-                # 延遲幾秒後，發送後續訊息
-                time.sleep(5)
-                line_bot_api.push_message( event.source.user_id,TextSendMessage(text="請問您滿意這個答案嗎？ (滿意/不滿意)"))
+                # 建立確認樣板訊息
+                confirm_template_message = TemplateSendMessage(
+                        alt_text="Confirm template",
+                        template=ConfirmTemplate(
+                            text="請問您滿意這個答案嗎？",
+                            actions=[
+                                 MessageAction(label="是", text="滿意"),
+                                 MessageAction(label="否", text="不滿意"), ]))
+                line_bot_api.reply_message(event.reply_token,[TextSendMessage(text=returnMsg),
+                                                              confirm_template_message])
                 # 啟動計時器
                 def send_timeout_message():
                     if time.time() - user_last_interaction_time.get(user_id, 0) > 30:
