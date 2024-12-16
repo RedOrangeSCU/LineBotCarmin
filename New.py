@@ -164,10 +164,10 @@ def handle_message(event):
                    "請推薦我2024年首刷禮最好的信用卡" in questionSentance or 
                    "每月刷卡額度都超過6萬以上，想要現金回饋，適合使用哪張卡?" in questionSentance or 
                    "請問台塑聯名卡的優惠有哪些？" in questionSentance ):
-                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))                
-                else:
                     line_bot_api.reply_message(event.reply_token,[TextSendMessage(text=returnMsg),
-                                                              confirm_template_message])
+                                                              confirm_template_message])                                    
+                else:
+                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))
                 # 啟動計時器
                 def send_timeout_message():
                     if time.time() - user_last_interaction_time.get(user_id, 0) > 30:
