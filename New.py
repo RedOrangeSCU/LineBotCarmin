@@ -132,7 +132,8 @@ def handle_message(event):
     #======MongoDB操作範例======
         result = handle_special_words(questionSentance)
         if result is None:
-            if '滿意' in questionSentance:
+            print("判斷:"+ ("滿意" in questionSentance))
+            if "滿意" in questionSentance:
                 noneMessage = '感謝您的回饋！Carmin小幫手給你優惠每一天！'
             elif '不滿意' in questionSentance:
                 noneMessage = '抱歉沒有提供您所需要的資訊，Carmin小幫手會再繼續加油的！'   
