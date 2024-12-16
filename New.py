@@ -132,7 +132,6 @@ def handle_message(event):
     #======MongoDB操作範例======
         result = handle_special_words(questionSentance)
         if result is None:
-            print("判斷:"+ ("滿意" in questionSentance))
             if "滿意" in questionSentance:
                 noneMessage = '感謝您的回饋！Carmin小幫手給你優惠每一天！'
             elif '不滿意' in questionSentance:
@@ -154,7 +153,20 @@ def handle_message(event):
                             actions=[
                                  MessageAction(label="是", text="滿意"),
                                  MessageAction(label="否", text="不滿意"), ]))
-                line_bot_api.reply_message(event.reply_token,[TextSendMessage(text=returnMsg),
+                #
+                if ("滿意" in questionSentance or 
+                   "Hi" in questionSentance or 
+                   "CUBE卡 的優惠有哪些？" in questionSentance or 
+                   "我也常用LINE Pay，那LINE Pay卡的優惠有哪些？" in questionSentance or 
+                   "想去日本玩，哪張卡在日本特別優惠？" in questionSentance or 
+                   "我比較常去台塑加油，哪張卡比較優惠？" in questionSentance or 
+                   "我要出國，國外消費現金回饋最多的信用卡是哪張？" in questionSentance or 
+                   "請推薦我2024年首刷禮最好的信用卡" in questionSentance or 
+                   "每月刷卡額度都超過6萬以上，想要現金回饋，適合使用哪張卡?" in questionSentance or 
+                   "請問台塑聯名卡的優惠有哪些？" in questionSentance ):
+                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))                
+                else:
+                    line_bot_api.reply_message(event.reply_token,[TextSendMessage(text=returnMsg),
                                                               confirm_template_message])
                 # 啟動計時器
                 def send_timeout_message():
