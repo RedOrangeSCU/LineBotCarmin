@@ -140,7 +140,11 @@ def handle_message(event):
             if returnMsg is None:
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="抱歉，我不明白您的意思"))
             else:
+                
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMsg))
+                # 延遲幾秒後，發送後續訊息
+                time.sleep(5)
+                line_bot_api.push_message( event.source.user_id,TextSendMessage(text="請問您滿意這個答案嗎？ (滿意/不滿意)"))
                 # 啟動計時器
                 def send_timeout_message():
                     if time.time() - user_last_interaction_time.get(user_id, 0) > 30:
@@ -193,6 +197,7 @@ def get_answer_from_excel(question, excel_file):
   except Exception as e:
     print(f"發生錯誤：{e}")
     return None
+
 
 import os
 if __name__ == "__main__":
